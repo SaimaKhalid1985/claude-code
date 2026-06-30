@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 628" width="1200" height="628">
+  <defs>
+
+    <!-- Main background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0d001f"/>
+      <stop offset="25%"  stop-color="#250060"/>
+      <stop offset="55%"  stop-color="#4400aa"/>
+      <stop offset="80%"  stop-color="#7700dd"/>
+      <stop offset="100%" stop-color="#9900ff"/>
+    </linearGradient>
+
+    <!-- Left pink bloom -->
+    <radialGradient id="bloom1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#dc0082" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#dc0082" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Right purple bloom -->
+    <radialGradient id="bloom2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#7800ff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7800ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Accent bar gradient -->
+    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffcc00"/>
+      <stop offset="50%"  stop-color="#ff0088"/>
+      <stop offset="100%" stop-color="#9900ff"/>
+    </linearGradient>
+
+    <!-- CTA bar gradient -->
+    <linearGradient id="ctaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ff006430" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6400ff" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <!-- Bottom glow line gradient -->
+    <linearGradient id="glowLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ff0088"/>
+      <stop offset="35%"  stop-color="#cc00ff"/>
+      <stop offset="70%"  stop-color="#8800ee"/>
+      <stop offset="100%" stop-color="#8800ee" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Top glint gradient -->
+    <linearGradient id="glint" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="white" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="white" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Right panel clip -->
+    <clipPath id="rightPanelClip">
+      <polygon points="128,0 1200,0 1200,628 0,628"/>
+    </clipPath>
+
+    <!-- Stripe pattern -->
+    <pattern id="stripes" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(-55)">
+      <line x1="0" y1="0" x2="0" y2="28" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+
+    <!-- Grid pattern -->
+    <pattern id="grid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="white" stroke-opacity="0.02" stroke-width="1"/>
+    </pattern>
+
+    <!-- Drop shadow for top tag divider -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+  </defs>
+
+  <!-- ── BACKGROUND ── -->
+  <rect width="1200" height="628" fill="url(#bgGrad)"/>
+
+  <!-- Grid overlay -->
+  <rect width="1200" height="628" fill="url(#grid)"/>
+
+  <!-- Pink bloom top-left -->
+  <ellipse cx="-60" cy="-100" rx="550" ry="550" fill="url(#bloom1)" opacity="1"/>
+
+  <!-- Purple bloom bottom-right -->
+  <ellipse cx="1000" cy="708" rx="400" ry="400" fill="url(#bloom2)" opacity="1"/>
+
+  <!-- Top glint line -->
+  <rect x="0" y="0" width="1200" height="1" fill="url(#glint)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="628" fill="url(#accentBar)"/>
+
+  <!-- ── RIGHT PANEL ── -->
+  <polygon points="128,0 1200,0 1200,628 0,628" fill="white" fill-opacity="0.04"/>
+  <polygon points="128,0 1200,0 1200,628 0,628" fill="url(#stripes)"/>
+  <!-- Right panel left border line -->
+  <line x1="128" y1="0" x2="0" y2="628" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+
+  <!-- Top-right corner mark -->
+  <rect x="1156" y="28" width="36" height="2" fill="white" fill-opacity="0.12"/>
+  <rect x="1156" y="28" width="2" height="36" fill="white" fill-opacity="0.12"/>
+
+  <!-- ── TOP TAG ── -->
+  <text x="40" y="54" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="5" fill="#ffc850" fill-opacity="0.65" text-anchor="start">// DIRECT RESPONSE COPYWRITER &amp; FUNNEL BUILDER</text>
+
+  <!-- Top tag divider line -->
+  <line x1="40" y1="70" x2="360" y2="70" stroke="#ff0088" stroke-opacity="0.7" stroke-width="1"/>
+
+  <!-- ── LEFT CONTENT ── -->
+
+  <!-- Hook line -->
+  <text x="40" y="118" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="white" fill-opacity="0.45" text-anchor="start">ATTENTION DTC &amp; ECOMMERCE BRAND OWNERS —</text>
+
+  <!-- Headline line 1 -->
+  <text x="40" y="192" font-family="'Arial Black', Arial, sans-serif" font-size="62" font-weight="900" letter-spacing="-1" fill="white" text-anchor="start">STOP PAYING</text>
+
+  <!-- Headline line 2 — gradient effect via two overlapping texts -->
+  <text x="40" y="256" font-family="'Arial Black', Arial, sans-serif" font-size="62" font-weight="900" letter-spacing="-1" fill="#ff99dd" text-anchor="start">FOR COPY THAT</text>
+
+  <!-- Headline line 3 — gold -->
+  <text x="40" y="320" font-family="'Arial Black', Arial, sans-serif" font-size="62" font-weight="900" letter-spacing="-1" fill="#ffaa00" text-anchor="start">DOESN'T CONVERT.</text>
+
+  <!-- Divider row -->
+  <line x1="40" y1="350" x2="220" y2="350" stroke="#ff0088" stroke-opacity="0.8" stroke-width="1"/>
+  <text x="238" y="355" font-family="Arial, sans-serif" font-size="10" letter-spacing="3" fill="white" fill-opacity="0.3" text-anchor="start">HERE'S WHAT YOU GET INSTEAD</text>
+
+  <!-- Body tagline -->
+  <text x="40" y="392" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.6" text-anchor="start">I research your market, write the copy, and hand you a</text>
+  <text x="40" y="416" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.9" font-weight="700" text-anchor="start">fully coded HTML page</text>
+  <text x="218" y="416" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.6" text-anchor="start"> — ready to launch, no developer needed.</text>
+  <text x="40" y="440" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.6" text-anchor="start">One person. Full funnel.</text>
+  <text x="224" y="440" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.9" font-weight="700" text-anchor="start"> Built not just written.</text>
+
+  <!-- ── RIGHT CONTENT — DELIVERABLES ── -->
+
+  <!-- Label -->
+  <text x="880" y="118" font-family="'Courier New', monospace" font-size="10" font-weight="700" letter-spacing="4" fill="#ffc850" fill-opacity="0.6" text-anchor="middle">WHAT'S INCLUDED</text>
+
+  <!-- Divider 1 -->
+  <line x1="760" y1="138" x2="1160" y2="138" stroke="white" stroke-opacity="0.07" stroke-width="1"/>
+
+  <!-- Deliverable 01 -->
+  <text x="775" y="178" font-family="'Arial Black', Arial, sans-serif" font-size="28" font-weight="900" fill="white" fill-opacity="0.08" text-anchor="start">01</text>
+  <text x="820" y="170" font-family="'Arial Black', Arial, sans-serif" font-size="14" font-weight="900" letter-spacing="1" fill="white" text-anchor="start">MARKET RESEARCH</text>
+  <text x="820" y="188" font-family="Arial, sans-serif" font-size="11" fill="white" fill-opacity="0.45" text-anchor="start">Your buyer's language, pain points &amp; triggers</text>
+
+  <!-- Divider 2 -->
+  <line x1="760" y1="208" x2="1160" y2="208" stroke="white" stroke-opacity="0.07" stroke-width="1"/>
+
+  <!-- Deliverable 02 -->
+  <text x="775" y="248" font-family="'Arial Black', Arial, sans-serif" font-size="28" font-weight="900" fill="white" fill-opacity="0.08" text-anchor="start">02</text>
+  <text x="820" y="240" font-family="'Arial Black', Arial, sans-serif" font-size="14" font-weight="900" letter-spacing="1" fill="white" text-anchor="start">CONVERSION COPY</text>
+  <text x="820" y="258" font-family="Arial, sans-serif" font-size="11" fill="white" fill-opacity="0.45" text-anchor="start">Direct response — written to sell cold traffic</text>
+
+  <!-- Divider 3 -->
+  <line x1="760" y1="278" x2="1160" y2="278" stroke="white" stroke-opacity="0.07" stroke-width="1"/>
+
+  <!-- Deliverable 03 -->
+  <text x="775" y="318" font-family="'Arial Black', Arial, sans-serif" font-size="28" font-weight="900" fill="white" fill-opacity="0.08" text-anchor="start">03</text>
+  <text x="820" y="310" font-family="'Arial Black', Arial, sans-serif" font-size="14" font-weight="900" letter-spacing="1" fill="white" text-anchor="start">CODED HTML PAGE</text>
+  <text x="820" y="328" font-family="Arial, sans-serif" font-size="11" fill="white" fill-opacity="0.45" text-anchor="start">Deploy-ready — no extra dev or designer needed</text>
+
+  <!-- Divider 4 -->
+  <line x1="760" y1="348" x2="1160" y2="348" stroke="white" stroke-opacity="0.07" stroke-width="1"/>
+
+  <!-- Service Pills -->
+  <!-- VSL pill -->
+  <rect x="775" y="370" width="62" height="28" rx="2" fill="none" stroke="#ffaa00" stroke-opacity="0.35"/>
+  <rect x="775" y="370" width="62" height="28" rx="2" fill="#ffaa00" fill-opacity="0.07"/>
+  <text x="806" y="389" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#ffaa00" text-anchor="middle">VSL</text>
+
+  <!-- Advertorial pill -->
+  <rect x="847" y="370" width="100" height="28" rx="2" fill="none" stroke="#ffaa00" stroke-opacity="0.35"/>
+  <rect x="847" y="370" width="100" height="28" rx="2" fill="#ffaa00" fill-opacity="0.07"/>
+  <text x="897" y="389" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#ffaa00" text-anchor="middle">ADVERTORIAL</text>
+
+  <!-- Sales Page pill -->
+  <rect x="957" y="370" width="108" height="28" rx="2" fill="none" stroke="#ffaa00" stroke-opacity="0.35"/>
+  <rect x="957" y="370" width="108" height="28" rx="2" fill="#ffaa00" fill-opacity="0.07"/>
+  <text x="1011" y="389" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#ffaa00" text-anchor="middle">SALES PAGE</text>
+
+  <!-- ── BOTTOM GLOW LINE ── -->
+  <rect x="0" y="526" width="1200" height="2" fill="url(#glowLine)"/>
+
+  <!-- ── CTA BAR ── -->
+  <rect x="0" y="528" width="1200" height="100" fill="url(#ctaGrad)"/>
+  <line x1="0" y1="528" x2="1200" y2="528" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+
+  <!-- CTA small text -->
+  <text x="40" y="562" font-family="Arial, sans-serif" font-size="11" letter-spacing="4" fill="white" fill-opacity="0.4" text-anchor="start">READY TO SCALE WITH A FUNNEL THAT ACTUALLY SELLS?</text>
+
+  <!-- CTA big text -->
+  <text x="40" y="600" font-family="'Arial Black', Arial, sans-serif" font-size="26" font-weight="900" letter-spacing="0.5" fill="white" text-anchor="start">ONE PERSON. FULL FUNNEL. LAUNCH READY.</text>
+
+</svg>
