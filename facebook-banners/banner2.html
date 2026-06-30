@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banner 2 – Split Glass</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0010; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
+  .banner {
+    width: 820px;
+    height: 312px;
+    position: relative;
+    overflow: hidden;
+    background: #0d001f;
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* Main background gradient */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, #12003a 0%, #2d006b 35%, #5500aa 65%, #8800ee 100%);
+  }
+
+  /* Pink/magenta left bloom */
+  .bloom-left {
+    position: absolute;
+    left: -80px; top: -60px;
+    width: 420px; height: 420px;
+    background: radial-gradient(ellipse, rgba(220,0,130,0.55) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+  }
+
+  /* Right deep purple bloom */
+  .bloom-right {
+    position: absolute;
+    right: -40px; bottom: -80px;
+    width: 360px; height: 360px;
+    background: radial-gradient(ellipse, rgba(140,0,255,0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(25px);
+  }
+
+  /* Glassmorphism card */
+  .glass-panel {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 520px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+  }
+
+  /* Diagonal lines decoration */
+  .diag-lines {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 320px;
+    overflow: hidden;
+    opacity: 0.07;
+  }
+  .diag-lines::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: repeating-linear-gradient(
+      -45deg,
+      white,
+      white 1px,
+      transparent 1px,
+      transparent 18px
+    );
+  }
+
+  /* Content left */
+  .content {
+    position: absolute;
+    left: 44px; top: 50%;
+    transform: translateY(-50%);
+    max-width: 480px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .eyebrow-line {
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff00aa, #ffaa00);
+  }
+  .eyebrow-text {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: rgba(255,200,80,0.8);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .headline {
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.0;
+    margin-bottom: 16px;
+    letter-spacing: 1.5px;
+  }
+  .headline .line1 {
+    color: #ffffff;
+    text-shadow: 0 0 25px rgba(200,0,255,0.4);
+  }
+  .headline .line2 {
+    background: linear-gradient(90deg, #ffffff 0%, #d880ff 60%, #ff80cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .divider {
+    width: 280px;
+    height: 1px;
+    background: linear-gradient(90deg, #ff00aa, #cc00ff, transparent);
+    margin-bottom: 14px;
+  }
+
+  .services {
+    font-size: 10.5px;
+    letter-spacing: 3.5px;
+    font-weight: 700;
+    color: #ffaa00;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255,160,0,0.5);
+  }
+
+  .tagline {
+    font-size: 12px;
+    letter-spacing: 1.8px;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  /* Right side visual element */
+  .right-visual {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 170px;
+    height: 200px;
+  }
+
+  /* Stacked rings */
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .ring1 {
+    width: 160px; height: 160px;
+    border-color: rgba(255,0,170,0.25);
+  }
+  .ring2 {
+    width: 120px; height: 120px;
+    border-color: rgba(200,0,255,0.3);
+    border-style: dashed;
+  }
+  .ring3 {
+    width: 80px; height: 80px;
+    border-color: rgba(255,150,0,0.4);
+  }
+  .ring4 {
+    width: 40px; height: 40px;
+    border-color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.05);
+  }
+
+  /* Orbiting dot */
+  .orbit-dot {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #ff00aa;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -100px);
+    box-shadow: 0 0 12px #ff00aa;
+  }
+  .orbit-dot2 {
+    background: #ffaa00;
+    transform: translate(76px, -50%);
+    box-shadow: 0 0 10px #ffaa00;
+  }
+
+  /* Corner badge */
+  .badge {
+    position: absolute;
+    top: 18px; right: 18px;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: rgba(255,200,80,0.6);
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 1px solid rgba(255,200,80,0.2);
+    padding: 4px 10px;
+  }
+
+  /* Bottom strip */
+  .bottom-strip {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff00aa 0%, #cc00ff 35%, #8800ee 65%, transparent 100%);
+  }
+  .top-strip {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,0,170,0.6), transparent);
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="bg"></div>
+  <div class="bloom-left"></div>
+  <div class="bloom-right"></div>
+  <div class="glass-panel"></div>
+  <div class="diag-lines"></div>
+  <div class="top-strip"></div>
+  <div class="bottom-strip"></div>
+
+  <div class="badge">Premium Service</div>
+
+  <div class="content">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">Direct Response Expert</div>
+    </div>
+    <div class="headline">
+      <div class="line1">I Turn Offers Into</div>
+      <div class="line2">Funnels That Sell</div>
+    </div>
+    <div class="divider"></div>
+    <div class="services">Funnel Research &nbsp;·&nbsp; Conversion Copy &nbsp;·&nbsp; Fully Coded HTML Page</div>
+    <div class="tagline">VSLs, Advertorials, Sales Pages — Built Not Just Written</div>
+  </div>
+
+  <div class="right-visual">
+    <div class="ring ring1"></div>
+    <div class="ring ring2"></div>
+    <div class="ring ring3"></div>
+    <div class="ring ring4"></div>
+    <div class="ring orbit-dot"></div>
+    <div class="ring orbit-dot orbit-dot2"></div>
+  </div>
+</div>
+</body>
+</html>

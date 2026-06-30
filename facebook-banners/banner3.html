@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banner 3 – Bold Typographic</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
+  .banner {
+    width: 820px;
+    height: 312px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff00aa 0%, #cc0088 10%, #880066 20%, #550044 30%, #330033 45%, #1a0044 60%, #2200aa 75%, #5500cc 87%, #7700ee 100%);
+    font-family: 'Arial Black', Arial, sans-serif;
+  }
+
+  /* Noise texture overlay */
+  .noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* Big ghost text watermark */
+  .watermark {
+    position: absolute;
+    bottom: -30px;
+    left: -10px;
+    font-size: 220px;
+    font-weight: 900;
+    letter-spacing: -10px;
+    color: rgba(255,255,255,0.04);
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* Horizontal rule lines */
+  .h-rule {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  }
+  .h-rule-top { top: 52px; }
+  .h-rule-bottom { bottom: 52px; }
+
+  /* Vertical accent */
+  .v-accent {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 42px;
+    width: 4px;
+    background: linear-gradient(180deg, #ffaa00, #ff0088, #9900ff);
+    box-shadow: 0 0 20px rgba(255,0,136,0.6);
+  }
+
+  /* Number/step decorations */
+  .step-nums {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-end;
+  }
+  .step {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .step .num {
+    font-size: 24px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.08);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .step.active .num { color: rgba(255,180,0,0.3); }
+  .step.active { color: rgba(255,180,0,0.5); }
+
+  /* Main content */
+  .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 170px 0 64px;
+  }
+
+  .overline {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: rgba(255,200,80,0.7);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .headline {
+    font-size: 44px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: 0px;
+    margin-bottom: 18px;
+  }
+
+  .word-turn { color: #ffffff; }
+  .word-offers {
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255,255,255,0.5);
+  }
+  .word-into { color: #ffffff; }
+  .word-funnels {
+    background: linear-gradient(90deg, #ff88cc, #ffffff, #cc88ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .word-that { color: rgba(255,255,255,0.5); }
+  .word-sell {
+    color: #ffaa00;
+    text-shadow: 0 0 30px rgba(255,170,0,0.5);
+  }
+
+  /* Services row */
+  .services-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 10px;
+  }
+  .svc {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #ffaa00;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255,160,0,0.4);
+  }
+  .dot-sep {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: rgba(255,170,0,0.5);
+    margin: 0 10px;
+  }
+
+  .tagline {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+  }
+
+  /* Top-right corner mark */
+  .corner-mark {
+    position: absolute;
+    top: 16px; right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+  }
+  .cm-line {
+    height: 2px;
+    background: rgba(255,255,255,0.2);
+  }
+  .cm-line:nth-child(1) { width: 30px; }
+  .cm-line:nth-child(2) { width: 20px; }
+  .cm-line:nth-child(3) { width: 10px; }
+
+  /* Bottom left tag */
+  .bottom-tag {
+    position: absolute;
+    bottom: 14px;
+    left: 64px;
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* Glint effect top */
+  .glint {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.4) 70%, transparent 100%);
+  }
+
+  /* Pink triangle decoration */
+  .triangle-deco {
+    position: absolute;
+    right: 140px;
+    bottom: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid rgba(255,0,136,0.3);
+  }
+  .triangle-deco2 {
+    right: 120px;
+    bottom: 20px;
+    border-bottom-color: rgba(180,0,255,0.2);
+  }
+  .triangle-deco3 {
+    right: 160px;
+    bottom: 26px;
+    border-bottom-color: rgba(255,170,0,0.2);
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 9px;
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="noise"></div>
+  <div class="watermark">SELL</div>
+  <div class="h-rule h-rule-top"></div>
+  <div class="h-rule h-rule-bottom"></div>
+  <div class="v-accent"></div>
+  <div class="glint"></div>
+  <div class="corner-mark">
+    <div class="cm-line"></div>
+    <div class="cm-line"></div>
+    <div class="cm-line"></div>
+  </div>
+
+  <div class="step-nums">
+    <div class="step"><span>Research</span><span class="num">01</span></div>
+    <div class="step active"><span>Convert</span><span class="num">02</span></div>
+    <div class="step"><span>Build</span><span class="num">03</span></div>
+  </div>
+
+  <div class="triangle-deco"></div>
+  <div class="triangle-deco triangle-deco2"></div>
+  <div class="triangle-deco triangle-deco3"></div>
+
+  <div class="content">
+    <div class="overline">// Direct Response Copywriting &amp; Funnel Design</div>
+    <div class="headline">
+      <span class="word-turn">I </span><span class="word-turn">Turn </span><span class="word-offers">Offers </span><span class="word-into">Into </span><span class="word-funnels">Funnels </span><span class="word-that">That </span><span class="word-sell">Sell</span>
+    </div>
+    <div class="services-row">
+      <span class="svc">Funnel Research</span>
+      <div class="dot-sep"></div>
+      <span class="svc">Conversion Copy</span>
+      <div class="dot-sep"></div>
+      <span class="svc">Fully Coded HTML Page</span>
+    </div>
+    <div class="tagline">VSLs, Advertorials, Sales Pages — Built Not Just Written</div>
+  </div>
+
+  <div class="bottom-tag">Built Not Just Written</div>
+</div>
+</body>
+</html>
